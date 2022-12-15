@@ -43,7 +43,7 @@ describe ('Register testing', () => {
         cy.get(locators.registration.acceptCheckBox).click()
         cy.get('.btn').click()
     })
-    it ("Last name in letters and symbols", () => {
+    it ("Last name in letters and numbers", () => {
         cy.visit('/')
         cy.get(locators.registration.regBtn).eq(2).click()
         cy.get(locators.registration.firstName).type(faker.name.firstName ())
