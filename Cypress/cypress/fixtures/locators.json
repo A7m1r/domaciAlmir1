@@ -1,0 +1,23 @@
+{
+"login": {
+    "emailInput": "#email",
+    "passwordInput":"#password",
+    "submitBtn": "button"
+
+},
+"header": {
+    "loginBtn": "a[href='/login",
+    "logoutBtn": ".ml-auto > :nth-child(3) > .nav-link"
+},
+
+"registration":{
+    "firstName": "#first-name",
+    "lastName": "#last-name",
+    "email": "#email",
+    "password": "#password",
+    "passwordConfirmation": "#password-confirmation",
+    "acceptCheckBox": ".form-check-input",
+    "submit": ".btn",
+    "regBtn": ".nav-link"
+} 
+}
