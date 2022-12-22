@@ -19,5 +19,6 @@
     "acceptCheckBox": ".form-check-input",
     "submit": ".btn",
     "regBtn": ".nav-link"
-} 
+}
+
 }

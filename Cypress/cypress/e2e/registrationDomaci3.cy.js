@@ -1,0 +1,56 @@
+const locators = require("../fixtures/locators.json")
+const {faker} = require('@faker-js/faker')
+import { registrationPage } from "../pageObjects/registrationPage"
+var userPass = faker.internet.password ()
+let sviNum = faker.random.numeric (15)
+describe ('Register testing', () => {
+    it('Visit Gallery', () => {
+        cy.visit('/')
+    })
+    it('Go to Register', () => {
+        cy.visit("/")
+        registrationPage.clickRegBtn
+    })
+    it('Register', () => {
+        cy.visit('/')
+        registrationPage.clickRegBtn()
+        registrationPage.registration('Reginald','Reginaldson','regireginaldson@mail.com','BigusDikus1234','BigusDikus1234')
+        registrationPage.clickAcceptCheckBtn()
+        registrationPage.clickSubmitBtn()
+    })
+    it ("First name in numbers", () => {
+        cy.visit('/')
+        registrationPage.clickRegBtn()
+        registrationPage.firstNameInput.type(faker.random.numeric(20))
+        registrationPage.lastNameInput.type(faker.name.lastName())
+        registrationPage.emailInput.type(faker.internet.email())
+        registrationPage.passwordInput.type(userPass)
+        registrationPage.passwordConfirmationInput.type(userPass)
+        registrationPage.clickAcceptCheckBtn()
+        registrationPage.clickSubmitBtn()
+    })
+    it ("Password all numbers", () => {
+        cy.visit('/')
+        registrationPage.clickRegBtn()
+        registrationPage.firstNameInput.type(faker.name.firstName())
+        registrationPage.lastNameInput.type(faker.name.lastName())
+        registrationPage.emailInput.type(faker.internet.email())
+        registrationPage.passwordInput.type(sviNum)
+        registrationPage.passwordConfirmationInput.type(sviNum)
+        registrationPage.clickAcceptCheckBtn()
+        registrationPage.clickSubmitBtn()
+    })
+    it ("Last name in letters and numbers", () => {
+        cy.visit('/')
+        registrationPage.clickRegBtn()
+        registrationPage.firstNameInput.type(faker.name.firstName ())
+        registrationPage.lastNameInput.type(faker.finance.iban ())
+        registrationPage.emailInput.type(faker.internet.email())
+        registrationPage.passwordInput.type(userPass)
+        registrationPage.passwordConfirmationInput.type(userPass)
+        registrationPage.clickAcceptCheckBtn()
+        registrationPage.clickSubmitBtn()
+    })})
+afterEach(() => {
+    cy.clearCookies()
+})

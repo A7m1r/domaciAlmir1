@@ -10,4 +10,13 @@ module.exports = defineConfig({
   "scripts": {
     "cypress": "cypress open"
   },
+  
+  e2e: {
+    "baseUrl": "https://gallery-app.vivifyideas.com/",
+    "env": {
+      "validLoginEmail": "saruman@isengard.com",
+      "validLoginPassword": "SauronNo1"
+    },
+   
+  },
 });
